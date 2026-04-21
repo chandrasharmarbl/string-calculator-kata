@@ -2,6 +2,7 @@ class StringCalculator:
 
     def __init__(self):
         self.base_delimiter = ','
+        self.max_allowed_number = 1000
 
     def _parse(self, numbers: str) -> str:
         parsed = []
@@ -11,7 +12,7 @@ class StringCalculator:
             val = int(n)
             if val < 0:
                 negatives.append(val)
-            elif val <= 1000:
+            elif val <= self.max_allowed_number:
                 parsed.append(val)
 
         return parsed, negatives
