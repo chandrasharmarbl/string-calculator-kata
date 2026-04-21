@@ -1,3 +1,5 @@
+import re
+
 class StringCalculator:
 
     def __init__(self):
@@ -24,8 +26,15 @@ class StringCalculator:
     def _normalize(self, numbers: str) -> str:
 
         if numbers.startswith("//"):
-            delimiter, numbers = numbers[2:].split('\n')
-            numbers = numbers.replace(delimiter, self.base_delimiter)
+            header, numbers = numbers.split('\n')
+            delimiters = re.findall(r"\[(.*?)\]", header)
+
+            if delimiters:
+                for d in delimiters:
+                    numbers = numbers.replace(d, self.base_delimiter)
+            else:
+                delimiter = header[2:]
+                numbers = numbers.replace(delimiter, self.base_delimiter)
 
         numbers = numbers.replace('\n', self.base_delimiter)
         return numbers
