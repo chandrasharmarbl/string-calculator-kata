@@ -18,3 +18,7 @@ class TestStringCalculatorBasicOperations:
     def test_it_should_return_the_number_itself_for_single_inputs(self, calculator):
         """Rule 2: A single number requires no calculation."""
         assert calculator.add("1") == 1
+    
+    def test_it_should_return_the_sum_of_two_numbers_separated_by_commas(self, calculator):
+        """Rule 3: For two numbers separated by commas, the result is their sum."""
+        assert calculator.add("1,2") == 3
