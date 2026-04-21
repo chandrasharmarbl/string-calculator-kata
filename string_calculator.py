@@ -1,2 +1,4 @@
 class StringCalculator:
-    pass
+    def add(self, input_string: str) -> int:
+        if not input_string:
+            return 0
