@@ -22,3 +22,7 @@ class TestStringCalculatorBasicOperations:
     def test_it_should_return_the_sum_of_two_numbers_separated_by_commas(self, calculator):
         """Rule 3: For two numbers separated by commas, the result is their sum."""
         assert calculator.add("1,2") == 3
+    
+    def test_it_should_return_the_sum_of_all_numbers_separated_by_commas(self, calculator):
+        """Rule 4: For any number of comma separated numbers, the result is their sum."""
+        assert calculator.add("1,2,3,4,5") == 15
