@@ -3,6 +3,10 @@ class StringCalculator:
     def __init__(self):
         self.base_delimiter = ','
         self.max_allowed_number = 1000
+        self.call_count = 0
+
+    def get_call_count(self):
+        return self.call_count
 
     def _parse(self, numbers: str) -> str:
         parsed = []
@@ -27,6 +31,7 @@ class StringCalculator:
         return numbers
 
     def add(self, input_string: str) -> int:
+        self.call_count += 1
         if not input_string:
             return 0
         
