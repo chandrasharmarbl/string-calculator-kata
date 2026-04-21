@@ -60,3 +60,6 @@ class TestAdvancedDelimiters:
 class TestEdgeCases:
     def test_it_should_handle_numbers_with_leading_or_trailing_spaces(self, calculator):
         assert calculator.add(" 1 , 2 , 3 ") == 6
+
+    def test_it_should_allow_dot_as_delimiter(self, calculator):
+        assert calculator.add("//.\n1.2.3.4.5") == 15
