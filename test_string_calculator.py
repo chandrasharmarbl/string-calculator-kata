@@ -50,3 +50,12 @@ class TestInputValidation:
     def test_it_should_ignore_numbers_greater_than_one_thousand(self, calculator):
         """Rule 8: Numbers > 1000 are considered out of bounds and ignored in sums."""
         assert calculator.add("2,1001") == 2
+
+class TestCalculatorUsage:
+    """Requirements for tracking the operational state of the calculator."""
+
+    def test_it_should_report_the_total_number_of_times_add_was_called(self, calculator):
+        """Rule 9: The calculator must maintain an internal count of all add operations."""
+        calculator.add("1")
+        calculator.add("2")
+        assert calculator.get_call_count() == 2
