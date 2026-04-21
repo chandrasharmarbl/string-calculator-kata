@@ -33,5 +33,5 @@ class TestDelimiterHandling:
         assert calculator.add("1\n2,3") == 6
 
     def test_it_should_support_user_defined_custom_delimiters(self, calculator):
-        """Rule 5: Users can define a custom delimiter using the '//[delim]\n' syntax."""
+        """Rule 5: Users can define a custom delimiter using the // syntax."""
         assert calculator.add("//;\n1;2") == 3

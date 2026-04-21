@@ -3,5 +3,9 @@ class StringCalculator:
         if not input_string:
             return 0
         
+        if input_string.startswith("//"):
+            delimiter, input_string = input_string[2:].split('\n')
+            input_string = input_string.replace(delimiter, ',')
+            
         input_string = input_string.replace('\n', ',')
         return sum(int(num) for num in input_string.split(','))
