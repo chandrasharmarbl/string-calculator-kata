@@ -39,5 +39,5 @@ class TestDelimiterHandling:
 class TestInputValidation:
     def test_it_must_prohibit_negative_numbers(self, calculator):
         """Rule 6: Negative numbers are invalid and must trigger an exception."""
-        with pytest.raises(ValueError, match="negatives not allowed: \[-2\]"):
+        with pytest.raises(ValueError, match="negatives not allowed: \\[-2\\]"):
             calculator.add("1,-2")

@@ -4,7 +4,17 @@ class StringCalculator:
         self.base_delimiter = ','
 
     def _parse(self, numbers: str) -> str:
-        return [int(num) for num in numbers.split(self.base_delimiter)]
+        parsed = []
+        negatives = []
+
+        for n in numbers.split(self.base_delimiter):
+            val = int(n)
+            if val < 0:
+                negatives.append(val)
+            elif val <= 1000:
+                parsed.append(val)
+
+        return parsed, negatives
 
     def _normalize(self, numbers: str) -> str:
 
@@ -20,5 +30,7 @@ class StringCalculator:
             return 0
         
         normalized_string = self._normalize(input_string)
-    
-        return sum(self._parse(normalized_string))
+        parsed, negatives = self._parse(normalized_string)
+        if negatives:
+            raise ValueError(f"negatives not allowed: {negatives}")
+        return sum(parsed)
