@@ -56,3 +56,7 @@ class TestAdvancedDelimiters:
 
     def test_it_should_handle_multiple_long_delimiters(self, calculator):
         assert calculator.add("//[***][%%]\n1***2%%3") == 6
+
+class TestEdgeCases:
+    def test_it_should_handle_numbers_with_leading_or_trailing_spaces(self, calculator):
+        assert calculator.add(" 1 , 2 , 3 ") == 6
