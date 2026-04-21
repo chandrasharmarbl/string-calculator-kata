@@ -31,3 +31,7 @@ class TestDelimiterHandling:
     def test_it_should_allow_newlines_as_valid_delimiters(self, calculator):
         """Rule 4: Newlines should be treated exactly like commas."""
         assert calculator.add("1\n2,3") == 6
+
+    def test_it_should_support_user_defined_custom_delimiters(self, calculator):
+        """Rule 5: Users can define a custom delimiter using the '//[delim]\n' syntax."""
+        assert calculator.add("//;\n1;2") == 3
