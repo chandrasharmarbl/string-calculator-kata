@@ -3,4 +3,5 @@ class StringCalculator:
         if not input_string:
             return 0
         
+        input_string = input_string.replace('\n', ',')
         return sum(int(num) for num in input_string.split(','))
