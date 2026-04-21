@@ -15,3 +15,6 @@ class TestStringCalculatorBasicOperations:
         assert calculator.add("") == 0
    
 
+    def test_it_should_return_the_number_itself_for_single_inputs(self, calculator):
+        """Rule 2: A single number requires no calculation."""
+        assert calculator.add("1") == 1
