@@ -46,3 +46,7 @@ class TestInputValidation:
         """Rule 7: Error messages must be helpful by showing all offending numbers."""
         with pytest.raises(ValueError, match="negatives not allowed: \\[-2, -5\\]"):
             calculator.add("1,-2,3,-5")
+
+    def test_it_should_ignore_numbers_greater_than_one_thousand(self, calculator):
+        """Rule 8: Numbers > 1000 are considered out of bounds and ignored in sums."""
+        assert calculator.add("2,1001") == 2
