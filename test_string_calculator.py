@@ -59,3 +59,8 @@ class TestCalculatorUsage:
         calculator.add("1")
         calculator.add("2")
         assert calculator.get_call_count() == 2
+
+class TestAdvancedDelimiters:
+    def test_it_should_handle_long_delimiters(self, calculator):
+        """support multi-character delimiters like //[***]\\n"""
+        assert calculator.add("//[***]\n1***2***3") == 6
