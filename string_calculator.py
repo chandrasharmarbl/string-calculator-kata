@@ -1,11 +1,15 @@
 class StringCalculator:
+
+    def _parse(self, numbers: str) -> str:
+        delimiter = ','
+        if numbers.startswith("//"):
+            delimiter, numbers = numbers[2:].split('\n')
+            
+        numbers = numbers.replace('\n', delimiter)
+        return [int(num) for num in numbers.split(delimiter)]
+
     def add(self, input_string: str) -> int:
         if not input_string:
             return 0
         
-        if input_string.startswith("//"):
-            delimiter, input_string = input_string[2:].split('\n')
-            input_string = input_string.replace(delimiter, ',')
-            
-        input_string = input_string.replace('\n', ',')
-        return sum(int(num) for num in input_string.split(','))
+        return sum(self._parse(input_string))
