@@ -68,3 +68,7 @@ class TestAdvancedDelimiters:
     def test_it_should_handle_multiple_delimiters(self, calculator):
         """Rule 11: support multiple delimiters like //[*][%]\\n"""
         assert calculator.add("//[*][%]\n1*2%3") == 6
+
+    def test_it_should_handle_multiple_long_delimiters(self, calculator):
+        """Rule 12: support multiple delimiters of any length simultaneously"""
+        assert calculator.add("//[***][%%]\n1***2%%3") == 6
