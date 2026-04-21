@@ -41,3 +41,8 @@ class TestInputValidation:
         """Rule 6: Negative numbers are invalid and must trigger an exception."""
         with pytest.raises(ValueError, match="negatives not allowed: \\[-2\\]"):
             calculator.add("1,-2")
+
+    def test_it_must_list_all_negatives_in_the_error_message(self, calculator):
+        """Rule 7: Error messages must be helpful by showing all offending numbers."""
+        with pytest.raises(ValueError, match="negatives not allowed: \\[-2, -5\\]"):
+            calculator.add("1,-2,3,-5")
